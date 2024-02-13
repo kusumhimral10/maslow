@@ -92,27 +92,24 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
     const getAvailablePromptsApi = useApi(promptApi.getAvailablePrompts)
 
     useEffect(() => {
-        if (show) {
-            dispatch({ type: SHOW_CANVAS_DIALOG })
-        } else dispatch({ type: HIDE_CANVAS_DIALOG })
+        if (show) dispatch({ type: SHOW_CANVAS_DIALOG })
+        else dispatch({ type: HIDE_CANVAS_DIALOG })
         return () => dispatch({ type: HIDE_CANVAS_DIALOG })
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [show, dispatch])
 
     useEffect(() => {
-        if (promptType && show) {
-            setLoading(true)
+        if (promptType) {
             getAvailablePromptsApi.request({ tags: promptType === 'template' ? 'StringPromptTemplate&' : 'ChatPromptTemplate&' })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [promptType, show])
+    }, [promptType])
 
     useEffect(() => {
         if (getAvailablePromptsApi.data && getAvailablePromptsApi.data.repos) {
             setAvailablePrompNameList(getAvailablePromptsApi.data.repos)
             if (getAvailablePromptsApi.data.repos?.length) handleListItemClick(0, getAvailablePromptsApi.data.repos)
-            setLoading(false)
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -177,7 +174,6 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
     const [selectedPrompt, setSelectedPrompt] = useState({})
 
     const [accordionExpanded, setAccordionExpanded] = useState(['prompt'])
-    const [loading, setLoading] = useState(false)
 
     const handleAccordionChange = (accordionName) => (event, isExpanded) => {
         const accordians = [...accordionExpanded]
@@ -213,7 +209,6 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
         language.forEach((item) => {
             tags += `tags=${item.name}&`
         })
-        setLoading(true)
         getAvailablePromptsApi.request({ tags: tags })
     }
 
@@ -384,15 +379,7 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
                     </FormControl>
                 </Box>
 
-                {loading && (
-                    <Stack sx={{ alignItems: 'center', justifyContent: 'center', width: '100%', pb: 3 }} flexDirection='column'>
-                        <Box sx={{ p: 5, height: 'auto' }}>
-                            <img style={{ objectFit: 'cover', height: '20vh', width: 'auto' }} src={promptEmptySVG} alt='promptEmptySVG' />
-                        </Box>
-                        <div>Please wait....loading Prompts</div>
-                    </Stack>
-                )}
-                {!loading && availablePrompNameList && availablePrompNameList.length === 0 && (
+                {availablePrompNameList && availablePrompNameList.length == 0 && (
                     <Stack sx={{ alignItems: 'center', justifyContent: 'center', width: '100%', pb: 3 }} flexDirection='column'>
                         <Box sx={{ p: 5, height: 'auto' }}>
                             <img style={{ objectFit: 'cover', height: '20vh', width: 'auto' }} src={promptEmptySVG} alt='promptEmptySVG' />
@@ -400,7 +387,7 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
                         <div>No Available Prompts</div>
                     </Stack>
                 )}
-                {!loading && availablePrompNameList && availablePrompNameList.length > 0 && (
+                {availablePrompNameList && availablePrompNameList.length > 0 && (
                     <Stack sx={{ alignItems: 'center', justifyContent: 'center', width: '100%' }} flexDirection='column'>
                         <Box sx={{ width: '100%', p: 2 }}>
                             <Grid xs={12} container spacing={1} justifyContent='center' alignItems='center'>

@@ -149,7 +149,7 @@ export const ChatPopUp = ({ chatflowid }) => {
                     sx={{ position: 'absolute', right: 80, top: 20 }}
                     onClick={clearChat}
                     size='small'
-                    color='error'
+                    // color='error'
                     aria-label='clear'
                     title='Clear Chat History'
                 >

@@ -139,8 +139,9 @@ const CredentialListDialog = ({ show, dialogProps, onCancel, onCredentialSelecte
                                             style={{
                                                 width: 50,
                                                 height: 50,
-                                                borderRadius: '50%',
-                                                backgroundColor: 'white'
+                                                // borderRadius: '50%',
+                                                backgroundColor: 'white',
+                                                color: "#121D35"
                                             }}
                                         >
                                             <img

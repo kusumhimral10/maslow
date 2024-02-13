@@ -64,6 +64,8 @@ const NodeOutputHandler = ({ outputAnchor, data, disabled = false }) => {
                                 height: 10,
                                 width: 10,
                                 backgroundColor: data.selected ? theme.palette.primary.main : theme.palette.text.secondary,
+                                // backgroundColor: data.selected ? theme.palette.card.light : theme.palette.text.secondary,
+                                // backgroundColor: "yellow",
                                 top: position
                             }}
                         />

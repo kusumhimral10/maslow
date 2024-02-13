@@ -3,13 +3,12 @@ import { useContext, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 // material-ui
-import { useTheme } from '@mui/material/styles'
+import { styled, useTheme } from '@mui/material/styles'
 import { IconButton, Box, Typography, Divider, Button } from '@mui/material'
-import Tooltip from '@mui/material/Tooltip'
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip'
 
 // project imports
-import NodeCardWrapper from '../../ui-component/cards/NodeCardWrapper'
-import NodeTooltip from '../../ui-component/tooltip/NodeTooltip'
+import MainCard from 'ui-component/cards/MainCard'
 import NodeInputHandler from './NodeInputHandler'
 import NodeOutputHandler from './NodeOutputHandler'
 import AdditionalParamsDialog from 'ui-component/dialog/AdditionalParamsDialog'
@@ -19,7 +18,31 @@ import NodeInfoDialog from 'ui-component/dialog/NodeInfoDialog'
 import { baseURL } from 'store/constant'
 import { IconTrash, IconCopy, IconInfoCircle, IconAlertTriangle } from '@tabler/icons'
 import { flowContext } from 'store/context/ReactFlowContext'
-import LlamaindexPNG from 'assets/images/llamaindex.png'
+
+const CardWrapper = styled(MainCard)(({ theme }) => ({
+    background: theme.palette.card.main,
+    // background: theme.paper,
+    color: theme.darkTextPrimary,
+    border: 'solid 1px',
+    borderColor: theme.palette.primary[200] + 75,
+    width: '300px',
+    height: 'auto',
+    padding: '10px',
+    boxShadow: '0 2px 14px 0 rgb(32 40 45 / 8%)',
+    '&:hover': {
+        borderColor: theme.palette.primary.main
+    // background: theme.paper,
+
+    }
+}))
+
+const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: theme.palette.nodeToolTip.background,
+        color: theme.palette.nodeToolTip.color,
+        boxShadow: theme.shadows[1]
+    }
+}))
 
 // ===========================|| CANVAS NODE ||=========================== //
 
@@ -73,7 +96,7 @@ const CanvasNode = ({ data }) => {
 
     return (
         <>
-            <NodeCardWrapper
+            <CardWrapper
                 content={false}
                 sx={{
                     padding: 0,
@@ -81,7 +104,7 @@ const CanvasNode = ({ data }) => {
                 }}
                 border={false}
             >
-                <NodeTooltip
+                <LightTooltip
                     open={!canvas.canvasDialogShow && open}
                     onClose={handleClose}
                     onOpen={handleOpen}
@@ -136,8 +159,9 @@ const CanvasNode = ({ data }) => {
                                     style={{
                                         ...theme.typography.commonAvatar,
                                         ...theme.typography.largeAvatar,
-                                        borderRadius: '50%',
-                                        backgroundColor: 'white',
+                                        // borderRadius: '50%',
+                                        // backgroundColor: 'white',
+                                        backgroundColor: '#EEEEEE',
                                         cursor: 'grab'
                                     }}
                                 >
@@ -159,25 +183,9 @@ const CanvasNode = ({ data }) => {
                                     {data.label}
                                 </Typography>
                             </Box>
-                            <div style={{ flexGrow: 1 }}></div>
-                            {data.tags && data.tags.includes('LlamaIndex') && (
-                                <>
-                                    <div
-                                        style={{
-                                            borderRadius: '50%',
-                                            padding: 15
-                                        }}
-                                    >
-                                        <img
-                                            style={{ width: '25px', height: '25px', borderRadius: '50%', objectFit: 'contain' }}
-                                            src={LlamaindexPNG}
-                                            alt='LlamaIndex'
-                                        />
-                                    </div>
-                                </>
-                            )}
                             {warningMessage && (
                                 <>
+                                    <div style={{ flexGrow: 1 }}></div>
                                     <Tooltip title={<span style={{ whiteSpace: 'pre-line' }}>{warningMessage}</span>} placement='top'>
                                         <IconButton sx={{ height: 35, width: 35 }}>
                                             <IconAlertTriangle size={35} color='orange' />
@@ -193,7 +201,7 @@ const CanvasNode = ({ data }) => {
                                     <Typography
                                         sx={{
                                             fontWeight: 500,
-                                            textAlign: 'center'
+                                            textAlign: 'center',
                                         }}
                                     >
                                         Inputs
@@ -221,7 +229,7 @@ const CanvasNode = ({ data }) => {
                                             : 0
                                 }}
                             >
-                                <Button sx={{ borderRadius: 25, width: '90%', mb: 2 }} variant='outlined' onClick={onDialogClicked}>
+                                <Button disableRipple sx={{ width: '90%', mb: 2 }} onClick={onDialogClicked}>
                                     Additional Parameters
                                 </Button>
                             </div>
@@ -238,12 +246,13 @@ const CanvasNode = ({ data }) => {
                             </Typography>
                         </Box>
                         <Divider />
+
                         {data.outputAnchors.map((outputAnchor, index) => (
                             <NodeOutputHandler key={index} outputAnchor={outputAnchor} data={data} />
                         ))}
                     </Box>
-                </NodeTooltip>
-            </NodeCardWrapper>
+                </LightTooltip>
+            </CardWrapper>
             <AdditionalParamsDialog
                 show={showDialog}
                 dialogProps={dialogProps}

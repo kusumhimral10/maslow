@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 // material-ui
-import { Grid, Box, Stack, Toolbar, ToggleButton, ButtonGroup, InputAdornment, TextField } from '@mui/material'
+import { Grid, Box, Stack, Toolbar, ToggleButton, ButtonGroup, InputAdornment, TextField, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
 // project imports
@@ -29,6 +29,7 @@ import * as React from 'react'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import { FlowListTable } from '../../ui-component/table/FlowListTable'
 import { StyledButton } from '../../ui-component/button/StyledButton'
+import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 // ==============================|| CHATFLOWS ||============================== //
 
@@ -76,28 +77,30 @@ const Chatflows = () => {
         navigate(`/canvas/${selectedChatflow.id}`)
     }
 
+    // Chatflows API Request
     useEffect(() => {
         getAllChatflowsApi.request()
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    useEffect(() => {
-        if (getAllChatflowsApi.error) {
-            if (getAllChatflowsApi.error?.response?.status === 401) {
-                setLoginDialogProps({
-                    title: 'Login',
-                    confirmButtonName: 'Login'
-                })
-                setLoginDialogOpen(true)
-            }
-        }
-    }, [getAllChatflowsApi.error])
+    // useEffect(() => {
+    //     if (getAllChatflowsApi.error) {
+    //         if (getAllChatflowsApi.error?.response?.status === 401) {
+    //             setLoginDialogProps({
+    //                 title: 'Login',
+    //                 confirmButtonName: 'Login'
+    //             })
+    //             setLoginDialogOpen(true)
+    //         }
+    //     }
+    // }, [getAllChatflowsApi.error])
 
+    // The Chatflows API waits for data to be received from the server
     useEffect(() => {
         setLoading(getAllChatflowsApi.loading)
     }, [getAllChatflowsApi.loading])
 
+    // The Chatflows API's Data handled
     useEffect(() => {
         if (getAllChatflowsApi.data) {
             try {
@@ -137,7 +140,9 @@ const Chatflows = () => {
                             width: '100%'
                         }}
                     >
-                        <h1>Chatflows</h1>
+                        {/* <h1 style={{color:  customization.isDarkMode ? "" : "#121D35"}}>Chatflows</h1> */}
+                        <Typography variant='h1'>Chatflows</Typography>
+                        {/* <h1>Chatflows</h1> */}
                         <TextField
                             size='small'
                             sx={{ display: { xs: 'none', sm: 'block' }, ml: 3 }}
@@ -157,7 +162,8 @@ const Chatflows = () => {
                             <ButtonGroup disableElevation variant='contained' aria-label='outlined primary button group'>
                                 <ToggleButtonGroup sx={{ maxHeight: 40 }} value={view} color='primary' exclusive onChange={handleChange}>
                                     <ToggleButton
-                                        sx={{ color: theme?.customization?.isDarkMode ? 'white' : 'inherit' }}
+                                        // sx={{ color: theme?.customization?.isDarkMode ? 'white' : 'inherit' }}
+                                        sx={{ borderRadius: '0px' }}
                                         variant='contained'
                                         value='card'
                                         title='Card View'
@@ -165,7 +171,7 @@ const Chatflows = () => {
                                         <IconLayoutGrid />
                                     </ToggleButton>
                                     <ToggleButton
-                                        sx={{ color: theme?.customization?.isDarkMode ? 'white' : 'inherit' }}
+                                        sx={{ borderRadius: '0px' }}
                                         variant='contained'
                                         value='list'
                                         title='List View'
@@ -211,10 +217,10 @@ const Chatflows = () => {
                     <div>No Chatflows Yet</div>
                 </Stack>
             )}
-            <LoginDialog show={loginDialogOpen} dialogProps={loginDialogProps} onConfirm={onLoginClick} />
-            <ConfirmDialog />
+            {/* <LoginDialog show={loginDialogOpen} dialogProps={loginDialogProps} onConfirm={onLoginClick} />
+            <ConfirmDialog /> */}
         </MainCard>
     )
 }
 
-export default Chatflows
+export default withAuthenticationRequired(Chatflows)

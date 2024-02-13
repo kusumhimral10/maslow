@@ -28,8 +28,6 @@ import ToolDialog from 'views/tools/ToolDialog'
 import AssistantDialog from 'views/assistants/AssistantDialog'
 import ExpandTextDialog from 'ui-component/dialog/ExpandTextDialog'
 import FormatPromptValuesDialog from 'ui-component/dialog/FormatPromptValuesDialog'
-import PromptLangsmithHubDialog from 'ui-component/dialog/PromptLangsmithHubDialog'
-import ManageScrapedLinksDialog from 'ui-component/dialog/ManageScrapedLinksDialog'
 import CredentialInputHandler from './CredentialInputHandler'
 
 // utils
@@ -37,6 +35,7 @@ import { getInputVariables } from 'utils/genericHelper'
 
 // const
 import { FLOWISE_CREDENTIAL_ID } from 'store/constant'
+import PromptLangsmithHubDialog from '../../ui-component/dialog/PromptLangsmithHubDialog'
 
 const EDITABLE_OPTIONS = ['selectedTool', 'selectedAssistant']
 
@@ -63,25 +62,22 @@ const NodeInputHandler = ({ inputAnchor, inputParam, data, disabled = false, isA
     const [showFormatPromptValuesDialog, setShowFormatPromptValuesDialog] = useState(false)
     const [formatPromptValuesDialogProps, setFormatPromptValuesDialogProps] = useState({})
     const [showPromptHubDialog, setShowPromptHubDialog] = useState(false)
-    const [showManageScrapedLinksDialog, setShowManageScrapedLinksDialog] = useState(false)
-    const [manageScrapedLinksDialogProps, setManageScrapedLinksDialogProps] = useState({})
 
     const onExpandDialogClicked = (value, inputParam) => {
-        const dialogProps = {
+        const dialogProp = {
             value,
             inputParam,
             disabled,
             confirmButtonName: 'Save',
             cancelButtonName: 'Cancel'
         }
-        setExpandDialogProps(dialogProps)
+        setExpandDialogProps(dialogProp)
         setShowExpandDialog(true)
     }
 
     const onShowPromptHubButtonClicked = () => {
         setShowPromptHubDialog(true)
     }
-
     const onShowPromptHubButtonSubmit = (templates) => {
         setShowPromptHubDialog(false)
         for (const t of templates) {
@@ -90,26 +86,6 @@ const NodeInputHandler = ({ inputAnchor, inputParam, data, disabled = false, isA
             }
         }
     }
-
-    const onManageLinksDialogClicked = (url, selectedLinks, relativeLinksMethod, limit) => {
-        const dialogProps = {
-            url,
-            relativeLinksMethod,
-            limit,
-            selectedLinks,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
-        }
-        setManageScrapedLinksDialogProps(dialogProps)
-        setShowManageScrapedLinksDialog(true)
-    }
-
-    const onManageLinksDialogSave = (url, links) => {
-        setShowManageScrapedLinksDialog(false)
-        data.inputs.url = url
-        data.inputs.selectedLinks = links
-    }
-
     const onEditJSONClicked = (value, inputParam) => {
         // Preset values if the field is format prompt values
         let inputValue = value
@@ -304,7 +280,6 @@ const NodeInputHandler = ({ inputAnchor, inputParam, data, disabled = false, isA
                                 style={{
                                     display: 'flex',
                                     flexDirection: 'row',
-                                    alignItems: 'center',
                                     borderRadius: 10,
                                     background: 'rgb(254,252,191)',
                                     padding: 10,
@@ -312,7 +287,7 @@ const NodeInputHandler = ({ inputAnchor, inputParam, data, disabled = false, isA
                                     marginBottom: 10
                                 }}
                             >
-                                <IconAlertTriangle size={30} color='orange' />
+                                <IconAlertTriangle size={36} color='orange' />
                                 <span style={{ color: 'rgb(116,66,16)', marginLeft: 10 }}>{inputParam.warning}</span>
                             </div>
                         )}
@@ -394,12 +369,7 @@ const NodeInputHandler = ({ inputAnchor, inputParam, data, disabled = false, isA
                                 {inputParam?.acceptVariable && (
                                     <>
                                         <Button
-                                            sx={{
-                                                borderRadius: 25,
-                                                width: '100%',
-                                                mb: 0,
-                                                mt: 2
-                                            }}
+                                            sx={{ borderRadius: 25, width: '100%', mb: 0, mt: 2 }}
                                             variant='outlined'
                                             disabled={disabled}
                                             onClick={() => onEditJSONClicked(data.inputs[inputParam.name] ?? '', inputParam)}
@@ -460,39 +430,6 @@ const NodeInputHandler = ({ inputAnchor, inputParam, data, disabled = false, isA
                                 </div>
                             </>
                         )}
-                        {(data.name === 'cheerioWebScraper' ||
-                            data.name === 'puppeteerWebScraper' ||
-                            data.name === 'playwrightWebScraper') &&
-                            inputParam.name === 'url' && (
-                                <>
-                                    <Button
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'row',
-                                            width: '100%'
-                                        }}
-                                        disabled={disabled}
-                                        sx={{ borderRadius: '12px', width: '100%', mt: 1 }}
-                                        variant='outlined'
-                                        onClick={() =>
-                                            onManageLinksDialogClicked(
-                                                data.inputs[inputParam.name] ?? inputParam.default ?? '',
-                                                data.inputs.selectedLinks,
-                                                data.inputs['relativeLinksMethod'] ?? 'webCrawl',
-                                                parseInt(data.inputs['limit']) ?? 0
-                                            )
-                                        }
-                                    >
-                                        Manage Links
-                                    </Button>
-                                    <ManageScrapedLinksDialog
-                                        show={showManageScrapedLinksDialog}
-                                        dialogProps={manageScrapedLinksDialogProps}
-                                        onCancel={() => setShowManageScrapedLinksDialog(false)}
-                                        onSave={onManageLinksDialogSave}
-                                    />
-                                </>
-                            )}
                     </Box>
                 </>
             )}

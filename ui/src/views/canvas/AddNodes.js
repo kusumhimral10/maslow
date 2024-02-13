@@ -22,9 +22,7 @@ import {
     Popper,
     Stack,
     Typography,
-    Chip,
-    Tab,
-    Tabs
+    Chip
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
@@ -38,20 +36,12 @@ import { StyledFab } from 'ui-component/button/StyledFab'
 
 // icons
 import { IconPlus, IconSearch, IconMinus, IconX } from '@tabler/icons'
-import LlamaindexPNG from 'assets/images/llamaindex.png'
-import LangChainPNG from 'assets/images/langchain.png'
 
 // const
 import { baseURL } from 'store/constant'
 import { SET_COMPONENT_NODES } from 'store/actions'
 
 // ==============================|| ADD NODES||============================== //
-function a11yProps(index) {
-    return {
-        id: `attachment-tab-${index}`,
-        'aria-controls': `attachment-tabpanel-${index}`
-    }
-}
 
 const AddNodes = ({ nodesData, node }) => {
     const theme = useTheme()
@@ -62,7 +52,6 @@ const AddNodes = ({ nodesData, node }) => {
     const [nodes, setNodes] = useState({})
     const [open, setOpen] = useState(false)
     const [categoryExpanded, setCategoryExpanded] = useState({})
-    const [tabValue, setTabValue] = useState(0)
 
     const anchorRef = useRef(null)
     const prevOpen = useRef(open)
@@ -97,11 +86,6 @@ const AddNodes = ({ nodesData, node }) => {
         }
     }
 
-    const handleTabChange = (event, newValue) => {
-        setTabValue(newValue)
-        filterSearch(searchValue, newValue)
-    }
-
     const getSearchedNodes = (value) => {
         const passed = nodesData.filter((nd) => {
             const passesQuery = nd.name.toLowerCase().includes(value.toLowerCase())
@@ -111,34 +95,23 @@ const AddNodes = ({ nodesData, node }) => {
         return passed
     }
 
-    const filterSearch = (value, newTabValue) => {
+    const filterSearch = (value) => {
         setSearchValue(value)
         setTimeout(() => {
             if (value) {
                 const returnData = getSearchedNodes(value)
-                groupByCategory(returnData, newTabValue ?? tabValue, true)
+                groupByCategory(returnData, true)
                 scrollTop()
             } else if (value === '') {
-                groupByCategory(nodesData, newTabValue ?? tabValue)
+                groupByCategory(nodesData)
                 scrollTop()
             }
         }, 500)
     }
 
-    const groupByTags = (nodes, newTabValue = 0) => {
-        const langchainNodes = nodes.filter((nd) => !nd.tags)
-        const llmaindexNodes = nodes.filter((nd) => nd.tags && nd.tags.includes('LlamaIndex'))
-        if (newTabValue === 0) {
-            return langchainNodes
-        } else {
-            return llmaindexNodes
-        }
-    }
-
-    const groupByCategory = (nodes, newTabValue, isFilter) => {
-        const taggedNodes = groupByTags(nodes, newTabValue)
+    const groupByCategory = (nodes, isFilter) => {
         const accordianCategories = {}
-        const result = taggedNodes.reduce(function (r, a) {
+        const result = nodes.reduce(function (r, a) {
             r[a.category] = r[a.category] || []
             r[a.category].push(a)
             accordianCategories[a.category] = isFilter ? true : false
@@ -198,7 +171,8 @@ const AddNodes = ({ nodesData, node }) => {
                 sx={{ left: 20, top: 20 }}
                 ref={anchorRef}
                 size='small'
-                color='primary'
+                // color='primary'
+                // variant='extended'
                 aria-label='add'
                 title='Add Node'
                 onClick={handleToggle}
@@ -271,72 +245,15 @@ const AddNodes = ({ nodesData, node }) => {
                                                 'aria-label': 'weight'
                                             }}
                                         />
-                                        <Tabs
-                                            sx={{ position: 'relative', minHeight: '50px', height: '50px' }}
-                                            variant='fullWidth'
-                                            value={tabValue}
-                                            onChange={handleTabChange}
-                                            aria-label='tabs'
-                                        >
-                                            {['LangChain', 'LlamaIndex'].map((item, index) => (
-                                                <Tab
-                                                    icon={
-                                                        <div
-                                                            style={{
-                                                                borderRadius: '50%'
-                                                            }}
-                                                        >
-                                                            <img
-                                                                style={{
-                                                                    width: '25px',
-                                                                    height: '25px',
-                                                                    borderRadius: '50%',
-                                                                    objectFit: 'contain'
-                                                                }}
-                                                                src={index === 0 ? LangChainPNG : LlamaindexPNG}
-                                                                alt={item}
-                                                            />
-                                                        </div>
-                                                    }
-                                                    iconPosition='start'
-                                                    sx={{ minHeight: '50px', height: '50px' }}
-                                                    key={index}
-                                                    label={item}
-                                                    {...a11yProps(index)}
-                                                ></Tab>
-                                            ))}
-                                            <div
-                                                style={{
-                                                    display: 'flex',
-                                                    flexDirection: 'row',
-                                                    alignItems: 'center',
-                                                    borderRadius: 10,
-                                                    background: 'rgb(254,252,191)',
-                                                    paddingLeft: 6,
-                                                    paddingRight: 6,
-                                                    paddingTop: 1,
-                                                    paddingBottom: 1,
-                                                    width: 'max-content',
-                                                    position: 'absolute',
-                                                    top: 0,
-                                                    right: 0,
-                                                    fontSize: '0.65rem',
-                                                    fontWeight: 700
-                                                }}
-                                            >
-                                                <span style={{ color: 'rgb(116,66,16)' }}>BETA</span>
-                                            </div>
-                                        </Tabs>
-
                                         <Divider />
                                     </Box>
                                     <PerfectScrollbar
                                         containerRef={(el) => {
                                             ps.current = el
                                         }}
-                                        style={{ height: '100%', maxHeight: 'calc(100vh - 380px)', overflowX: 'hidden' }}
+                                        style={{ height: '100%', maxHeight: 'calc(100vh - 320px)', overflowX: 'hidden' }}
                                     >
-                                        <Box sx={{ p: 2, pt: 0 }}>
+                                        <Box sx={{ p: 2 }}>
                                             <List
                                                 sx={{
                                                     width: '100%',
@@ -417,7 +334,13 @@ const AddNodes = ({ nodesData, node }) => {
                                                                                 sx={{
                                                                                     p: 0,
                                                                                     borderRadius: `${customization.borderRadius}px`,
-                                                                                    cursor: 'move'
+                                                                                    cursor: 'move',
+                                                                                    '&:hover span': {
+                                                                                        color: customization.isDarkMode ? '#FFF860 !important' : '#fff !important',
+                                                                                    },
+                                                                                    '&:hover p': {
+                                                                                        color: customization.isDarkMode ? '#fff !important' : '#d9d1d1 !important',
+                                                                                    },
                                                                                 }}
                                                                             >
                                                                                 <ListItem alignItems='center'>
@@ -426,8 +349,8 @@ const AddNodes = ({ nodesData, node }) => {
                                                                                             style={{
                                                                                                 width: 50,
                                                                                                 height: 50,
-                                                                                                borderRadius: '50%',
-                                                                                                backgroundColor: 'white'
+                                                                                                // borderRadius: '50%',
+                                                                                                backgroundColor: '#EEEEEE'
                                                                                             }}
                                                                                         >
                                                                                             <img
@@ -452,7 +375,13 @@ const AddNodes = ({ nodesData, node }) => {
                                                                                                     alignItems: 'center'
                                                                                                 }}
                                                                                             >
-                                                                                                <span>{node.label}</span>
+                                                                                                {/* <span>{node.label}</span> */}
+                                                                                                <span
+                                                                                                    style={{
+                                                                                                        color: customization.isDarkMode ? '#FFF860' : '#121D35',
+                                                                                                    }}>
+                                                                                                    {node.label}
+                                                                                                </span>
                                                                                                 &nbsp;
                                                                                                 {node.badge && (
                                                                                                     <Chip

@@ -20,6 +20,7 @@ export const theme = (customization) => {
         ? {
               colors: color,
               heading: color.paper,
+              heading5: "#121D35",
               paper: color.darkPrimaryLight,
               backgroundDefault: color.darkPaper,
               background: color.darkPrimaryLight,
@@ -33,11 +34,14 @@ export const theme = (customization) => {
           }
         : {
               colors: color,
-              heading: color.grey900,
+              //   heading: color.grey900,
+              heading: "#121D35",   // Text color global
+              heading5: color.paper,
               paper: color.paper,
               backgroundDefault: color.paper,
               background: color.primaryLight,
-              darkTextPrimary: color.grey700,
+            //   darkTextPrimary: color.grey700,
+              darkTextPrimary: "#121D35",  // Text color like simple html tag
               darkTextSecondary: color.grey500,
               textDark: color.grey900,
               menuSelected: color.secondaryDark,

@@ -67,11 +67,7 @@ const ExpandTextDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
 
     useEffect(() => {
         if (executeCustomFunctionNodeApi.data) {
-            if (typeof executeCustomFunctionNodeApi.data === 'object') {
-                setCodeExecutedResult(JSON.stringify(executeCustomFunctionNodeApi.data, null, 2))
-            } else {
-                setCodeExecutedResult(executeCustomFunctionNodeApi.data)
-            }
+            setCodeExecutedResult(executeCustomFunctionNodeApi.data)
         }
     }, [executeCustomFunctionNodeApi.data])
 
