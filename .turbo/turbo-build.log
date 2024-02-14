@@ -1,0 +1,279 @@
+$ craco build
+Creating an optimized production build...
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+Compiled with warnings.
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\doctype.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\doctype.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\error-codes.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\error-codes.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\foreign-content.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\foreign-content.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\html.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\html.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\token.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\token.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\unicode.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\common\unicode.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\index.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\index.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\parser\formatting-element-list.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\parser\formatting-element-list.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\parser\index.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\parser\index.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\parser\open-element-stack.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\parser\open-element-stack.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\serializer\index.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\serializer\index.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\tokenizer\index.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\tokenizer\index.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\tokenizer\preprocessor.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\tokenizer\preprocessor.js.map'
+
+Failed to parse source map from 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\tree-adapters\default.js.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\Admin\Documents\FussionAuth\Flowise\node_modules\parse5\dist\tree-adapters\default.js.map'
+
+[eslint] 
+src\index.js
+  Line 1:8:  'React' is defined but never used  unused-imports/no-unused-imports
+
+src\layout\MainLayout\Header\ProfileSection\index.js
+  Line 35:3:  'IconInfoCircle' is defined but never used  unused-imports/no-unused-imports
+
+src\layout\MainLayout\Header\index.js
+  Line 74:9:  'navigate' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+
+src\layout\MainLayout\Sidebar\MenuList\NavGroup\index.js
+  Line 16:11:  'customization' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+
+src\ui-component\button\StyledButton.js
+  Line 5:54:  'color' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+
+src\ui-component\button\StyledFab.js
+  Line 4:41:  'theme' is defined but never used. Allowed unused args must match /^_/u           unused-imports/no-unused-vars
+  Line 4:48:  'color' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+
+src\ui-component\cards\ItemCard.js
+  Line 10:8:  'theme' is defined but never used  unused-imports/no-unused-imports
+
+src\views\chatflows\index.js
+  Line 14:8:   'LoginDialog' is defined but never used                                                         unused-imports/no-unused-imports
+  Line 15:8:   'ConfirmDialog' is defined but never used                                                       unused-imports/no-unused-imports
+  Line 44:12:  'loginDialogOpen' is assigned a value but never used. Allowed unused vars must match /^_/u      unused-imports/no-unused-vars
+  Line 44:29:  'setLoginDialogOpen' is assigned a value but never used. Allowed unused vars must match /^_/u   unused-imports/no-unused-vars
+  Line 45:12:  'loginDialogProps' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+  Line 45:30:  'setLoginDialogProps' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  Line 66:11:  'onLoginClick' is assigned a value but never used. Allowed unused vars must match /^_/u         unused-imports/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  968.87 kB         build\static\js\8704.2612db60.chunk.js
+  231.77 kB (-3 B)  build\static\js\main.c4b98905.js
+  160.89 kB         build\static\js\89.0714b4ce.chunk.js
+  113.14 kB         build\static\js\5730.469c5bf6.chunk.js
+  85.03 kB          build\static\js\3363.f9dc9786.chunk.js
+  41.6 kB           build\static\js\690.5317b72b.chunk.js
+  33.05 kB          build\static\js\6804.910cd530.chunk.js
+  27.01 kB          build\static\js\5801.c08783f5.chunk.js
+  14.14 kB          build\static\js\3547.b6f837be.chunk.js
+  11.99 kB          build\static\js\8245.cf1b9fe5.chunk.js
+  11.2 kB           build\static\js\7998.7a4cd2ab.chunk.js
+  10.92 kB          build\static\js\react-syntax-highlighter\refractor-core-import.1d87af0a.chunk.js
+  10.75 kB          build\static\js\4610.a6be05df.chunk.js
+  10.24 kB          build\static\js\5290.db41b2e7.chunk.js
+  9.6 kB            build\static\js\1452.cbaa0627.chunk.js
+  8.73 kB           build\static\js\2083.9b636605.chunk.js
+  6.89 kB           build\static\js\react-syntax-highlighter_languages_refractor_mel.be9f1433.chunk.js
+  6.85 kB           build\static\js\2478.b14a25ab.chunk.js
+  6.6 kB            build\static\js\6739.9b2491d8.chunk.js
+  6.35 kB           build\static\js\2902.41e87562.chunk.js
+  5.98 kB           build\static\js\react-syntax-highlighter_languages_refractor_vim.7a361c3e.chunk.js
+  5.91 kB           build\static\js\3710.c3e72665.chunk.js
+  5.87 kB           build\static\js\react-syntax-highlighter_languages_refractor_opencl.bfcd24d2.chunk.js
+  5.85 kB           build\static\js\8588.fccb924d.chunk.js
+  5.75 kB           build\static\js\4690.fd003d09.chunk.js
+  5.5 kB            build\static\js\react-syntax-highlighter_languages_refractor_gherkin.33d52a9f.chunk.js
+  5.19 kB           build\static\css\5801.227955cf.chunk.css
+  5.11 kB           build\static\js\3024.c212a564.chunk.js
+  4.28 kB           build\static\js\9847.bb80c936.chunk.js
+  4.19 kB           build\static\js\7450.2374c827.chunk.js
+  4.14 kB           build\static\js\react-syntax-highlighter_languages_refractor_autohotkey.8cc3e69b.chunk.js
+  4.02 kB           build\static\js\react-syntax-highlighter_languages_refractor_abap.df4f2cd3.chunk.js
+  3.7 kB            build\static\js\react-syntax-highlighter_languages_refractor_apacheconf.295a2ccc.chunk.js
+  3.68 kB           build\static\js\2682.702224fc.chunk.js
+  3.44 kB           build\static\js\9309.0259b485.chunk.js
+  3.29 kB           build\static\js\react-syntax-highlighter_languages_refractor_arduino.81815f65.chunk.js
+  2.93 kB           build\static\js\react-syntax-highlighter_languages_refractor_bash.a7375c8b.chunk.js
+  2.91 kB           build\static\js\react-syntax-highlighter_languages_refractor_plsql.873358ce.chunk.js
+  2.43 kB           build\static\js\react-syntax-highlighter_languages_refractor_pure.db2a704d.chunk.js
+  2.35 kB           build\static\js\3693.f5b5fc62.chunk.js
+  2.29 kB           build\static\js\4539.73c93ee0.chunk.js
+  2.28 kB           build\static\js\react-syntax-highlighter_languages_refractor_nginx.fbbf228c.chunk.js
+  2.2 kB            build\static\js\react-syntax-highlighter_languages_refractor_renpy.ef42ba44.chunk.js
+  2.19 kB           build\static\js\react-syntax-highlighter_languages_refractor_nsis.94903e6d.chunk.js
+  2.04 kB           build\static\js\react-syntax-highlighter_languages_refractor_powershell.c3b60a97.chunk.js
+  1.99 kB           build\static\js\1842.bfbc2b71.chunk.js
+  1.99 kB           build\static\js\react-syntax-highlighter_languages_refractor_vbnet.d35390d7.chunk.js
+  1.97 kB           build\static\js\react-syntax-highlighter_languages_refractor_sql.03cbfdd8.chunk.js
+  1.96 kB           build\static\js\react-syntax-highlighter_languages_refractor_phpExtras.c5fc0111.chunk.js
+  1.81 kB           build\static\js\react-syntax-highlighter_languages_refractor_xquery.9bfecf85.chunk.js
+  1.79 kB           build\static\js\react-syntax-highlighter_languages_refractor_erb.25061e06.chunk.js
+  1.78 kB           build\static\js\react-syntax-highlighter_languages_refractor_asciidoc.31097bfe.chunk.js
+  1.75 kB           build\static\js\react-syntax-highlighter_languages_refractor_php.ccd59a07.chunk.js
+  1.75 kB           build\static\js\react-syntax-highlighter_languages_refractor_markdown.32fc42d3.chunk.js
+  1.74 kB           build\static\css\1842.f90c042a.chunk.css
+  1.67 kB           build\static\js\react-syntax-highlighter_languages_refractor_haskell.fa51588c.chunk.js
+  1.66 kB           build\static\js\react-syntax-highlighter_languages_refractor_inform7.70cd31bb.chunk.js
+  1.58 kB           build\static\js\react-syntax-highlighter_languages_refractor_clojure.70c66702.chunk.js
+  1.52 kB           build\static\js\react-syntax-highlighter_languages_refractor_crystal.7db3bf77.chunk.js
+  1.48 kB           build\static\js\react-syntax-highlighter_languages_refractor_soy.020f3803.chunk.js
+  1.44 kB           build\static\js\react-syntax-highlighter_languages_refractor_tsx.2bc6670c.chunk.js
+  1.34 kB           build\static\js\react-syntax-highlighter_languages_refractor_d.11c82369.chunk.js
+  1.34 kB           build\static\js\react-syntax-highlighter_languages_refractor_cpp.f495dc64.chunk.js
+  1.34 kB           build\static\js\react-syntax-highlighter_languages_refractor_tt2.4f02db55.chunk.js
+  1.33 kB           build\static\js\react-syntax-highlighter_languages_refractor_basic.c6188f68.chunk.js
+  1.32 kB           build\static\js\react-syntax-highlighter_languages_refractor_javascript.a56b8be9.chunk.js
+  1.28 kB           build\static\js\react-syntax-highlighter_languages_refractor_smarty.9f10a34c.chunk.js
+  1.27 kB           build\static\js\react-syntax-highlighter_languages_refractor_scala.925711c6.chunk.js
+  1.27 kB           build\static\js\react-syntax-highlighter_languages_refractor_fsharp.0e4e38da.chunk.js
+  1.25 kB           build\static\js\react-syntax-highlighter_languages_refractor_textile.41e93d80.chunk.js
+  1.25 kB           build\static\js\react-syntax-highlighter_languages_refractor_django.515fd781.chunk.js
+  1.25 kB           build\static\js\react-syntax-highlighter_languages_refractor_verilog.9f65467e.chunk.js
+  1.23 kB           build\static\js\react-syntax-highlighter_languages_refractor_rest.797ee52a.chunk.js
+  1.23 kB           build\static\js\react-syntax-highlighter_languages_refractor_io.98a11e23.chunk.js
+  1.22 kB           build\static\js\react-syntax-highlighter_languages_refractor_puppet.3c3eb30e.chunk.js
+  1.22 kB           build\static\js\react-syntax-highlighter_languages_refractor_visualBasic.55397451.chunk.js
+  1.21 kB           build\static\js\react-syntax-highlighter_languages_refractor_python.ce6a6a84.chunk.js
+  1.19 kB           build\static\js\react-syntax-highlighter_languages_refractor_swift.f6406ef0.chunk.js
+  1.17 kB           build\static\js\react-syntax-highlighter_languages_refractor_perl.980e69f5.chunk.js
+  1.16 kB           build\static\js\react-syntax-highlighter_languages_refractor_lisp.76c822d8.chunk.js
+  1.16 kB           build\static\js\react-syntax-highlighter_languages_refractor_bison.5db4f316.chunk.js
+  1.15 kB           build\static\js\react-syntax-highlighter_languages_refractor_q.bbf5e716.chunk.js
+  1.14 kB           build\static\js\react-syntax-highlighter_languages_refractor_objectivec.d289c939.chunk.js
+  1.14 kB           build\static\js\react-syntax-highlighter_languages_refractor_handlebars.0bf76763.chunk.js
+  1.12 kB           build\static\js\react-syntax-highlighter_languages_refractor_csharp.99c09627.chunk.js
+  1.11 kB           build\static\js\react-syntax-highlighter_languages_refractor_applescript.8556bada.chunk.js
+  1.1 kB            build\static\js\react-syntax-highlighter_languages_refractor_ruby.0dff96b2.chunk.js
+  1.09 kB           build\static\js\react-syntax-highlighter_languages_refractor_livescript.522621fe.chunk.js
+  1.09 kB           build\static\js\react-syntax-highlighter_languages_refractor_pug.57144137.chunk.js
+  1.06 kB           build\static\js\react-syntax-highlighter_languages_refractor_groovy.709f7b34.chunk.js
+  1.05 kB           build\static\js\react-syntax-highlighter_languages_refractor_pascal.f337142e.chunk.js
+  1.01 kB           build\static\js\react-syntax-highlighter_languages_refractor_tcl.31a3e236.chunk.js
+  1.01 kB           build\static\js\react-syntax-highlighter_languages_refractor_jsx.a1529769.chunk.js
+  1 kB              build\static\js\react-syntax-highlighter_languages_refractor_fortran.4e24b516.chunk.js
+  967 B             build\static\js\react-syntax-highlighter_languages_refractor_stylus.d6c31d24.chunk.js
+  963 B             build\static\js\react-syntax-highlighter_languages_refractor_vhdl.4109dbf8.chunk.js
+  950 B             build\static\js\react-syntax-highlighter_languages_refractor_glsl.02cef8d8.chunk.js
+  941 B             build\static\js\react-syntax-highlighter_languages_refractor_kotlin.be6aef54.chunk.js
+  937 B             build\static\js\react-syntax-highlighter_languages_refractor_haml.6614d115.chunk.js
+  931 B             build\static\js\react-syntax-highlighter_languages_refractor_jolie.5fc7828b.chunk.js
+  929 B             build\static\js\react-syntax-highlighter_languages_refractor_nix.0407e395.chunk.js
+  926 B             build\static\css\main.889a9982.css
+  918 B             build\static\js\react-syntax-highlighter_languages_refractor_elixir.31bfa95f.chunk.js
+  912 B             build\static\js\react-syntax-highlighter_languages_refractor_rust.d1dc29db.chunk.js
+  910 B             build\static\js\react-syntax-highlighter_languages_refractor_java.b4a84c99.chunk.js
+  886 B             build\static\js\react-syntax-highlighter_languages_refractor_c.630f48bd.chunk.js
+  882 B             build\static\js\react-syntax-highlighter_languages_refractor_markup.0aa15485.chunk.js
+  879 B             build\static\js\react-syntax-highlighter_languages_refractor_bro.f2a0a368.chunk.js
+  847 B             build\static\js\react-syntax-highlighter_languages_refractor_wasm.0c2af056.chunk.js
+  839 B             build\static\js\react-syntax-highlighter_languages_refractor_lolcode.d7cf5301.chunk.js
+  828 B             build\static\js\react-syntax-highlighter_languages_refractor_nim.c8e09c47.chunk.js
+  827 B             build\static\js\react-syntax-highlighter_languages_refractor_parser.25fd6938.chunk.js
+  807 B             build\static\js\react-syntax-highlighter_languages_refractor_coffeescript.1bb20c49.chunk.js
+  797 B             build\static\js\react-syntax-highlighter_languages_refractor_mizar.a98870e9.chunk.js
+  794 B             build\static\js\react-syntax-highlighter_languages_refractor_batch.504e1212.chunk.js
+  780 B             build\static\js\react-syntax-highlighter_languages_refractor_icon.420f1aea.chunk.js
+  769 B             build\static\js\react-syntax-highlighter_languages_refractor_qore.d0649706.chunk.js
+  764 B             build\static\js\react-syntax-highlighter_languages_refractor_eiffel.289f1692.chunk.js
+  764 B             build\static\js\react-syntax-highlighter_languages_refractor_monkey.ee990650.chunk.js
+  756 B             build\static\js\react-syntax-highlighter_languages_refractor_elm.ad0e3e6e.chunk.js
+  754 B             build\static\js\react-syntax-highlighter_languages_refractor_cssExtras.18ae370b.chunk.js
+  749 B             build\static\js\react-syntax-highlighter_languages_refractor_haxe.848f0352.chunk.js
+  745 B             build\static\js\react-syntax-highlighter_languages_refractor_scss.a4a25d57.chunk.js
+  742 B             build\static\js\react-syntax-highlighter_languages_refractor_ichigojam.ae3bca8f.chunk.js
+  740 B             build\static\js\react-syntax-highlighter_languages_refractor_keyman.697753df.chunk.js
+  734 B             build\static\js\react-syntax-highlighter_languages_refractor_wiki.9d29c0c6.chunk.js
+  731 B             build\static\js\react-syntax-highlighter_languages_refractor_liquid.5ebe0569.chunk.js
+  731 B             build\static\js\react-syntax-highlighter_languages_refractor_reason.1648d3d8.chunk.js
+  725 B             build\static\js\react-syntax-highlighter_languages_refractor_velocity.aa4f66d4.chunk.js
+  724 B             build\static\js\react-syntax-highlighter_languages_refractor_ada.71863949.chunk.js
+  721 B             build\static\js\react-syntax-highlighter_languages_refractor_http.94a7eb74.chunk.js
+  714 B             build\static\js\react-syntax-highlighter_languages_refractor_xojo.db325329.chunk.js
+  713 B             build\static\js\react-syntax-highlighter_languages_refractor_markupTemplating.8a5de8f9.chunk.js
+  709 B             build\static\js\react-syntax-highlighter_languages_refractor_xeora.79517a6d.chunk.js
+  700 B             build\static\js\react-syntax-highlighter_languages_refractor_ocaml.0b26c7a1.chunk.js
+  696 B             build\static\js\react-syntax-highlighter_languages_refractor_scheme.e8b59d9b.chunk.js
+  693 B             build\static\js\react-syntax-highlighter_languages_refractor_oz.96a18f96.chunk.js
+  692 B             build\static\js\react-syntax-highlighter_languages_refractor_autoit.e1a1eb6a.chunk.js
+  691 B             build\static\js\react-syntax-highlighter_languages_refractor_asm6502.ad7e66f0.chunk.js
+  689 B             build\static\js\react-syntax-highlighter_languages_refractor_apl.707c6633.chunk.js
+  684 B             build\static\js\react-syntax-highlighter_languages_refractor_yaml.826fbd42.chunk.js
+  684 B             build\static\js\react-syntax-highlighter_languages_refractor_makefile.edaf8efd.chunk.js
+  682 B             build\static\js\react-syntax-highlighter_languages_refractor_j.3b0ed70f.chunk.js
+  673 B             build\static\js\react-syntax-highlighter_languages_refractor_css.cb4b2eda.chunk.js
+  666 B             build\static\js\react-syntax-highlighter_languages_refractor_parigp.31212833.chunk.js
+  660 B             build\static\js\react-syntax-highlighter_languages_refractor_julia.84a41d68.chunk.js
+  657 B             build\static\js\react-syntax-highlighter_languages_refractor_go.50507665.chunk.js
+  648 B             build\static\js\react-syntax-highlighter_languages_refractor_latex.acb2403a.chunk.js
+  648 B             build\static\js\react-syntax-highlighter_languages_refractor_actionscript.06cd0f6e.chunk.js
+  643 B             build\static\js\react-syntax-highlighter_languages_refractor_aspnet.22802806.chunk.js
+  635 B             build\static\js\react-syntax-highlighter_languages_refractor_nasm.96028aad.chunk.js
+  626 B             build\static\js\react-syntax-highlighter_languages_refractor_twig.3acc7c0f.chunk.js
+  625 B             build\static\js\react-syntax-highlighter_languages_refractor_flow.653ca919.chunk.js
+  622 B             build\static\js\react-syntax-highlighter_languages_refractor_dart.b6c5ce0e.chunk.js
+  621 B             build\static\js\react-syntax-highlighter_languages_refractor_erlang.388937a3.chunk.js
+  620 B             build\static\js\react-syntax-highlighter_languages_refractor_clike.dbc66260.chunk.js
+  610 B             build\static\js\react-syntax-highlighter_languages_refractor_sass.53b2fcf0.chunk.js
+  606 B             build\static\js\react-syntax-highlighter_languages_refractor_sas.d68f6665.chunk.js
+  597 B             build\static\js\react-syntax-highlighter_languages_refractor_graphql.db16ef33.chunk.js
+  586 B             build\static\js\react-syntax-highlighter_languages_refractor_protobuf.79e3878f.chunk.js
+  577 B             build\static\js\react-syntax-highlighter_languages_refractor_rip.19e9cc35.chunk.js
+  577 B             build\static\js\react-syntax-highlighter_languages_refractor_lua.641a6562.chunk.js
+  567 B             build\static\js\react-syntax-highlighter_languages_refractor_smalltalk.528b1d68.chunk.js
+  560 B             build\static\js\react-syntax-highlighter_languages_refractor_r.938898bd.chunk.js
+  557 B             build\static\js\react-syntax-highlighter_languages_refractor_typescript.a6bdfd17.chunk.js
+  546 B             build\static\js\react-syntax-highlighter_languages_refractor_processing.2d71c6dd.chunk.js
+  546 B             build\static\js\react-syntax-highlighter_languages_refractor_csp.43b297c7.chunk.js
+  531 B             build\static\js\react-syntax-highlighter_languages_refractor_n4js.6c0cd630.chunk.js
+  525 B             build\static\js\react-syntax-highlighter_languages_refractor_less.01effcc2.chunk.js
+  510 B             build\static\js\react-syntax-highlighter_languages_refractor_diff.3701b68d.chunk.js
+  505 B             build\static\js\react-syntax-highlighter_languages_refractor_matlab.01074513.chunk.js
+  473 B             build\static\js\react-syntax-highlighter_languages_refractor_docker.43332498.chunk.js
+  453 B             build\static\js\react-syntax-highlighter_languages_refractor_tap.fc62cb84.chunk.js
+  452 B             build\static\js\react-syntax-highlighter_languages_refractor_prolog.b8cb82f7.chunk.js
+  445 B             build\static\js\react-syntax-highlighter_languages_refractor_roboconf.33b6c1a7.chunk.js
+  410 B             build\static\js\react-syntax-highlighter_languages_refractor_gedcom.a81b2520.chunk.js
+  401 B             build\static\js\react-syntax-highlighter_languages_refractor_json.dba0e72c.chunk.js
+  373 B             build\static\js\react-syntax-highlighter_languages_refractor_git.b838202d.chunk.js
+  368 B             build\static\js\react-syntax-highlighter_languages_refractor_hpkp.d5bee2d9.chunk.js
+  357 B             build\static\js\react-syntax-highlighter_languages_refractor_properties.f32ce698.chunk.js
+  351 B             build\static\js\react-syntax-highlighter_languages_refractor_arff.3f882001.chunk.js
+  331 B             build\static\js\react-syntax-highlighter_languages_refractor_brainfuck.474be043.chunk.js
+  321 B             build\static\js\react-syntax-highlighter_languages_refractor_ini.e4e1be05.chunk.js
+  318 B             build\static\js\react-syntax-highlighter_languages_refractor_hsts.770956ac.chunk.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
