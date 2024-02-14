@@ -19,8 +19,7 @@ import {
     Toolbar,
     TextField,
     InputAdornment,
-    ButtonGroup,
-    Typography
+    ButtonGroup
 } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
@@ -48,7 +47,6 @@ import CredentialEmptySVG from 'assets/images/credential_empty.svg'
 // const
 import { baseURL } from 'store/constant'
 import { SET_COMPONENT_CREDENTIALS } from 'store/actions'
-import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 // ==============================|| Credentials ||============================== //
 
@@ -206,8 +204,7 @@ const Credentials = () => {
                                 width: '100%'
                             }}
                         >
-                            {/* <h1>Credentials&nbsp;</h1> */}
-                    <Typography variant='h1'>Credentials&nbsp;</Typography>
+                            <h1>Credentials&nbsp;</h1>
                             <TextField
                                 size='small'
                                 sx={{ display: { xs: 'none', sm: 'block' }, ml: 3 }}
@@ -336,4 +333,4 @@ const Credentials = () => {
     )
 }
 
-export default withAuthenticationRequired(Credentials)
+export default Credentials

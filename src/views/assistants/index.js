@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 // material-ui
-import { Grid, Box, Stack, Button, Typography } from '@mui/material'
+import { Grid, Box, Stack, Button } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
 // project imports
@@ -22,7 +22,6 @@ import useApi from 'hooks/useApi'
 
 // icons
 import { IconPlus, IconFileImport } from '@tabler/icons'
-import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 // ==============================|| CHATFLOWS ||============================== //
 
@@ -91,8 +90,7 @@ const Assistants = () => {
             <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
                 <Stack flexDirection='row'>
                     <Grid sx={{ mb: 1.25 }} container direction='row'>
-                        {/* <h1>OpenAI Assistants</h1> */}
-                    <Typography variant='h1'>OpenAI Assistants</Typography>
+                        <h1>OpenAI Assistants</h1>
                         <Box sx={{ flexGrow: 1 }} />
                         <Grid item>
                             <Button variant='outlined' sx={{ mr: 2 }} onClick={loadExisting} startIcon={<IconFileImport />}>
@@ -145,4 +143,4 @@ const Assistants = () => {
     )
 }
 
-export default withAuthenticationRequired(Assistants)
+export default Assistants

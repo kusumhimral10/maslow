@@ -13,9 +13,7 @@ export default function themePalette(theme) {
         },
         primary: {
             light: theme.customization.isDarkMode ? theme.colors?.darkPrimaryLight : theme.colors?.primaryLight,
-            // main: theme.colors?.primaryMain,
-            main: theme.customization.isDarkMode ? "#fff" : theme.colors?.primaryMain,
-            isDisable: theme.customization.isDarkMode ? "#9e9d9e" : "#0000001f",
+            main: theme.colors?.primaryMain,
             dark: theme.customization.isDarkMode ? theme.colors?.darkPrimaryDark : theme.colors?.primaryDark,
             200: theme.customization.isDarkMode ? theme.colors?.darkPrimary200 : theme.colors?.primary200,
             800: theme.customization.isDarkMode ? theme.colors?.darkPrimary800 : theme.colors?.primary800
@@ -82,10 +80,8 @@ export default function themePalette(theme) {
         },
         card: {
             main: theme.customization.isDarkMode ? theme.colors?.darkPrimaryMain : theme.colors?.paper,
-            ItemCard: theme.customization.isDarkMode ? theme.colors?.paper : "#121D35",
             light: theme.customization.isDarkMode ? theme.colors?.darkPrimary200 : theme.colors?.paper,
-            hover: theme.customization.isDarkMode ? theme.colors?.darkPrimary800 : theme.colors?.paper,
-            ItemCardhover: theme.customization.isDarkMode ? theme.colors?.paper : "rgb(92 49 84 / 87%)"
+            hover: theme.customization.isDarkMode ? theme.colors?.darkPrimary800 : theme.colors?.paper
         },
         asyncSelect: {
             main: theme.customization.isDarkMode ? theme.colors?.darkPrimary800 : theme.colors?.grey50

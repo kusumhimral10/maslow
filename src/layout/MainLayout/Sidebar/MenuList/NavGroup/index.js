@@ -7,13 +7,11 @@ import { Divider, List, Typography } from '@mui/material'
 // project imports
 import NavItem from '../NavItem'
 import NavCollapse from '../NavCollapse'
-import { useSelector } from 'react-redux'
 
 // ==============================|| SIDEBAR MENU LIST GROUP ||============================== //
 
 const NavGroup = ({ item }) => {
     const theme = useTheme()
-    const customization = useSelector((state) => state.customization)
 
     // menu list collapse & items
     const items = item.children?.map((menu) => {

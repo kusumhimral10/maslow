@@ -20,8 +20,7 @@ import {
     TextField,
     InputAdornment,
     ButtonGroup,
-    Chip,
-    Typography
+    Chip
 } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
@@ -47,7 +46,6 @@ import VariablesEmptySVG from 'assets/images/variables_empty.svg'
 // const
 import AddEditVariableDialog from './AddEditVariableDialog'
 import HowToUseVariablesDialog from './HowToUseVariablesDialog'
-import { withAuthenticationRequired } from '@auth0/auth0-react'
 
 // ==============================|| Credentials ||============================== //
 
@@ -178,8 +176,7 @@ const Variables = () => {
                                 width: '100%'
                             }}
                         >
-                            {/* <h1>Variables&nbsp;</h1> */}
-                            <Typography variant='h1'>Variables&nbsp;</Typography>
+                            <h1>Variables&nbsp;</h1>
                             <TextField
                                 size='small'
                                 sx={{ display: { xs: 'none', sm: 'block' }, ml: 3 }}
@@ -314,4 +311,4 @@ const Variables = () => {
     )
 }
 
-export default withAuthenticationRequired(Variables)
+export default Variables

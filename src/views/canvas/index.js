@@ -21,6 +21,7 @@ import { useTheme } from '@mui/material/styles'
 // project imports
 import CanvasNode from './CanvasNode'
 import ButtonEdge from './ButtonEdge'
+import StickyNote from './StickyNote'
 import CanvasHeader from './CanvasHeader'
 import AddNodes from './AddNodes'
 import ConfirmDialog from 'ui-component/dialog/ConfirmDialog'
@@ -45,9 +46,8 @@ import useNotifier from 'utils/useNotifier'
 
 // const
 import { FLOWISE_CREDENTIAL_ID } from 'store/constant'
-import { withAuthenticationRequired } from '@auth0/auth0-react'
 
-const nodeTypes = { customNode: CanvasNode }
+const nodeTypes = { customNode: CanvasNode, stickyNote: StickyNote }
 const edgeTypes = { buttonedge: ButtonEdge }
 
 // ==============================|| CANVAS ||============================== //
@@ -277,7 +277,7 @@ const Canvas = () => {
             const newNode = {
                 id: newNodeId,
                 position,
-                type: 'customNode',
+                type: nodeData.type !== 'StickyNote' ? 'customNode' : 'stickyNote',
                 data: initNode(nodeData, newNodeId)
             }
 
@@ -551,4 +551,4 @@ const Canvas = () => {
     )
 }
 
-export default withAuthenticationRequired(Canvas)
+export default Canvas

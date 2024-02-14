@@ -59,7 +59,7 @@ export const File = ({ value, fileType, onChange, disabled = false }) => {
             <span
                 style={{
                     fontStyle: 'italic',
-                    color: theme.palette.grey['600'],
+                    color: theme.palette.grey['800'],
                     marginBottom: '1rem'
                 }}
             >

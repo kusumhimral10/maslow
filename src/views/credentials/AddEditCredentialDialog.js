@@ -203,9 +203,8 @@ const AddEditCredentialDialog = ({ show, dialogProps, onCancel, onConfirm }) => 
                                 width: 50,
                                 height: 50,
                                 marginRight: 10,
-                                // borderRadius: '50%',
-                                backgroundColor: 'white',
-                                color: "#121D35"
+                                borderRadius: '50%',
+                                backgroundColor: 'white'
                             }}
                         >
                             <img

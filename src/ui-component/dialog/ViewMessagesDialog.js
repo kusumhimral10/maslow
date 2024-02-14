@@ -491,25 +491,7 @@ const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
                                                 mt: 1,
                                                 ml: 1,
                                                 mr: 1,
-                                                mb: index === chatlogs.length - 1 ? 1 : 0,
-                                                '&.Mui-selected span': {
-                                                    color: customization.isDarkMode ? '#FFF860 !important' : '#fff !important',
-                                                    '&:hover span': {
-                                                        color: customization.isDarkMode ? '#FFF860 !important' : '#fff !important',
-                                                    },
-                                                },
-                                                '&.Mui-selected p': {
-                                                    color: customization.isDarkMode ? '#fff !important' : '#d9d1d1 !important',
-                                                    '&:hover p': {
-                                                        color: customization.isDarkMode ? '#fff !important' : '#d9d1d1 !important',
-                                                    },
-                                                },
-                                                '&:hover span': {
-                                                    color: customization.isDarkMode ? '#FFF860 !important' : '#fff !important',
-                                                },
-                                                '&:hover p': {
-                                                    color: customization.isDarkMode ? '#fff !important' : '#d9d1d1 !important',
-                                                },
+                                                mb: index === chatlogs.length - 1 ? 1 : 0
                                             }}
                                             selected={selectedMessageIndex === index}
                                             onClick={() => handleItemClick(index, chatmsg)}
@@ -518,13 +500,7 @@ const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
                                                 <ListItemText
                                                     primary={
                                                         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
-                                                            <span
-                                                                style={{
-                                                                    color: customization.isDarkMode ? '#FFF860' : '#121D35'
-                                                                }}
-                                                            >
-                                                                {chatmsg?.userContent}
-                                                            </span>
+                                                            <span>{chatmsg?.userContent}</span>
                                                             <div
                                                                 style={{
                                                                     maxHeight: '100px',
